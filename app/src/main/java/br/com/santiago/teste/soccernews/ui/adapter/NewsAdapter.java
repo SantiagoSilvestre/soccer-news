@@ -1,6 +1,9 @@
 package br.com.santiago.teste.soccernews.ui.adapter;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -34,10 +37,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         News news = this.news.get(position);
         holder.binding.tvTitle.setText(news.getTitle());
         holder.binding.tvDescription.setText(news.getDescription());
-        Picasso.get()
-                .load(news.getImage())
-                .fit()
-                .into(holder.binding.ivThumbnail);
+        Picasso.get().load(news.getImage()).fit().into(holder.binding.ivThumbnail);
+        holder.binding.btnOpenLink.setOnClickListener(view -> {
+           String link = news.getLink();
+           Intent i = new Intent(Intent.ACTION_VIEW);
+           i.setData(Uri.parse(link));
+           holder.itemView.getContext().startActivity(i);
+        });
     }
 
     @Override
