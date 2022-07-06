@@ -15,11 +15,12 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/news_image_height"
             android:contentDescription="@string/cd_news_image"
+            android:src="@color/cardview_dark_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@android:drawable/star_big_on"
-            tools:ignore="ImageContrastCheck" />
+            tools:ignore="@tools:ImageContrastCheck" />
 
         <TextView
             android:id="@+id/tvTitle"
@@ -30,6 +31,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:textAlignment="textStart"
             app:layout_constraintTop_toBottomOf="@+id/ivThumbnail"
             tools:text="Ferroviária vence Palmeiras" />
 
@@ -64,22 +66,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/activity_default_margin"
+            android:background="?android:selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@string/cd_favorite_icon"
+            android:focusable="true"
             app:layout_constraintBottom_toBottomOf="@+id/btnOpenLink"
             app:layout_constraintEnd_toStartOf="@id/ivShare"
             app:layout_constraintTop_toTopOf="@+id/btnOpenLink"
-            app:srcCompat="@drawable/ic_favorite"
-            android:contentDescription="@string/cd_favorite_icon" />
+            app:srcCompat="@drawable/ic_favorite" />
 
         <ImageView
             android:id="@+id/ivShare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/activity_default_margin"
+            android:background="?android:selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@string/cd_share_icon"
+            android:focusable="true"
             app:layout_constraintBottom_toBottomOf="@+id/btnOpenLink"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/btnOpenLink"
-            app:srcCompat="@drawable/ic_share"
-            android:contentDescription="@string/cd_share_icon" />
+            app:srcCompat="@drawable/ic_share" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
