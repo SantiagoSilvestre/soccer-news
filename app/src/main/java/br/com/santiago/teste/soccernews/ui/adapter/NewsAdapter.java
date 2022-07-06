@@ -1,11 +1,12 @@
 package br.com.santiago.teste.soccernews.ui.adapter;
 
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -33,6 +34,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         News news = this.news.get(position);
         holder.binding.tvTitle.setText(news.getTitle());
         holder.binding.tvDescription.setText(news.getDescription());
+        Picasso.get()
+                .load(news.getImage())
+                .fit()
+                .into(holder.binding.ivThumbnail);
     }
 
     @Override

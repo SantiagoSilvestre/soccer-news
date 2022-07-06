@@ -3,6 +3,6 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="activity_default_margin">16dp</dimen>
-    <dimen name="news_image_height">160dp</dimen>
+    <dimen name="news_image_height">270dp</dimen>
     <dimen name="default_half_margin">8dp</dimen>
 </resources>
