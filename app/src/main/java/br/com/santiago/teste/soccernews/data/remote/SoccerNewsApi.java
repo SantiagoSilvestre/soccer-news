@@ -1,4 +1,4 @@
-package br.com.santiago.teste.soccernews.data;
+package br.com.santiago.teste.soccernews.data.remote;
 
 import java.util.List;
 import br.com.santiago.teste.soccernews.domain.News;
