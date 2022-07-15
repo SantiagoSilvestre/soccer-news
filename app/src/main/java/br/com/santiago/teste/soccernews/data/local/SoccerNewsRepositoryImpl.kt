@@ -19,6 +19,10 @@ class SoccerNewsRepositoryImpl(val context: Context) : SoccerNewsRepository {
         return mNewsDatabase.loadFavoriteNews()
     }
 
+    override suspend fun loadNews(): List<News> {
+        return mNewsDatabase.loadNews()
+    }
+
     override suspend fun loadByTitle(title: String): News {
         return mNewsDatabase.loadByTitle(title)
     }

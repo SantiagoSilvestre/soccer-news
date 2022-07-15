@@ -17,28 +17,16 @@ class SoccerNewsServiceViewModel(
     private val _data = MutableLiveData<List<News>>()
     val data: LiveData<List<News>> = _data
 
-    private val state = MutableLiveData<State>()
-
 
     fun getNewsApi() {
         viewModelScope.launch {
             soccerNewsServiceUseCase.getNewsFromApi().onStart {
-                state.postValue(State.DOING)
             }.catch {
-                state.postValue(State.ERROR)
             }.collect {
-                state.postValue(State.DONE)
                 _data.postValue(it)
             }
         }
     }
 
-    fun getState(): LiveData<State> {
-        return state
-    }
-
-    enum class State {
-        DOING, DONE, ERROR
-    }
 
 }

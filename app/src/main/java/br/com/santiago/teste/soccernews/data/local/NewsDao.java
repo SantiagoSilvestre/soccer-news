@@ -18,6 +18,9 @@ public interface NewsDao {
     @Query("SELECT * FROM news WHERE favorite = 1")
     List<News> loadFavoriteNews();
 
+    @Query("SELECT * FROM news")
+    List<News> loadNews();
+
     @Query("SELECT * FROM news WHERE title = :title")
     News loadByTitle(String title);
 }
