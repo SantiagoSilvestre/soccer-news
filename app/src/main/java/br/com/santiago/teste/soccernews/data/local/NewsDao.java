@@ -5,8 +5,6 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
-import com.google.android.material.circularreveal.CircularRevealHelper;
-
 import java.util.List;
 
 import br.com.santiago.teste.soccernews.domain.News;
@@ -19,4 +17,7 @@ public interface NewsDao {
 
     @Query("SELECT * FROM news WHERE favorite = 1")
     List<News> loadFavoriteNews();
+
+    @Query("SELECT * FROM news WHERE title = :title")
+    News loadByTitle(String title);
 }

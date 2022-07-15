@@ -20,11 +20,11 @@ import br.com.santiago.teste.soccernews.domain.News;
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
     private final List<News> news;
-    private final NewsListener favoriteListener;
+    private final ListernerAdapter<News> listener;
 
-    public NewsAdapter(List<News> news, NewsListener favoriteListener) {
+    public NewsAdapter(List<News> news, ListernerAdapter<News> listener) {
         this.news = news;
-        this.favoriteListener = favoriteListener;
+        this.listener = listener;
     }
 
     @NonNull
@@ -59,7 +59,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         // Implementação da funcionalidade de "Favoritar"(o evento será instanciado pelo fragment)
         holder.binding.ivFavorite.setOnClickListener(view -> {
             news.favorite = !news.favorite;
-            this.favoriteListener.onFavorite(news);
+            this.listener.onClick(news);
             notifyItemChanged(position);
         });
         int favoriteColor = news.favorite ? R.color.primary : R.color.favorite_inactive;
@@ -81,10 +81,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
             super(binding.getRoot());
             this.binding = binding;
         }
-    }
-
-    public interface NewsListener {
-        void onFavorite(News news);
     }
 
 }
